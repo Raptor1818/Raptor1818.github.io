@@ -45,12 +45,12 @@ const Home = () => {
     useEffect(() => {
         const shuffled = [...typewriterStrings];
         for (let i = shuffled.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
         }
         setShuffledStrings(shuffled);
     }, []);
-    
+
   return (
     <div name="home" className='h-screen w-full bg-gradient-to-b from-black via-black to-gray-900 relative'>
         <div className='max-w-screen-lg mx-auto flex flex-col md:items-center justify-center h-full px-4 md:flex-row pl-12'>
