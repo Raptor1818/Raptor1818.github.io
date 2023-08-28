@@ -14,7 +14,7 @@ import game21 from '../assets/games/osugame.jpg'
 import game22 from '../assets/games/minecraft.jpg'
 import game23 from '../assets/games/terraria.jpg'
 
-import {FaCode, FaGamepad} from "react-icons/fa"
+import {FaCode, FaGamepad, FaUser} from "react-icons/fa"
 
 const About = () => {
     const gamesGroup1 = [
@@ -67,8 +67,9 @@ const About = () => {
     return (
     <div className='w-full h-[150vh] bg-gradient-to-b from-gray-900 via-black to-gray-900 text-white'>
         <div  className='max-w-screen-lg p-4 mx-auto flex flex-col py-16 w-full h-full'>
-            <div name="about" className='pb-8 pt-24'>
-                <h1 className='text-5xl font-bold inline border-b-4 border-gray-500'>About Me</h1>
+            <div name="about" className='pb-8 pt-24 flex flex-row justify-center items-center'>
+                <FaUser size={32} />
+                <h1 className='text-5xl font-semibold inline ml-3'>About Me</h1>
             </div>
 
             <p className='text-xl mt-2 '>
@@ -80,11 +81,11 @@ const About = () => {
             </p>
             
 
-            <div className='flex flex-col gap-3 mt-3'>
+            <div className='flex flex-col gap-3 mt-12'>
                 <div className='max-w-screen-lg p-4 mx-auto flex flex-col justify-center w-full h-full'>
                     <div className='pb-8 flex flex-row justify-center items-center'>
                         <FaCode className='px-2' size={60}/>
-                        <h className="text-4xl font-semibold mb-2">Languages I speak</h>
+                        <h1 className="text-5xl font-semibold mb-2">Languages I speak</h1>
                     </div>
                     <div className='grid grid-cols-2 md:grid-cols-4 gap-8 px-12 sm:px-0 text-center'>
                         <div>
