@@ -8,8 +8,8 @@ import Typewriter from 'typewriter-effect';
 const Home = () => {
     const typewriterStrings = [
         "Hello World!",
-        "Coding...",
-        "Probably watching Youtube...",
+        "Coding",
+        "Probably watching Youtube",
         "Gaming rn",
         "Not a furry.",
         "Sniffing copium",
@@ -37,7 +37,10 @@ const Home = () => {
         "At the gym",
         ":trolleybus:",
         "There is nothing wrong with fries on pizza.",
-        "Peak osu!std rank #58k"
+        "Peak osu!std rank #58k",
+        "Don't drink and code",
+        "Whitecat is my dad",
+        "                        "
     ]
 
     const [shuffledStrings, setShuffledStrings] = useState([]);
