@@ -7,12 +7,12 @@ import imageTailwind from '../assets/tailwind.png'
 import imageCPP from '../assets/cpp.png'
 import imageJava from '../assets/java.png'
 
-import battlebit from '../assets/games/battlebit.jpg'
-import cyberpunk from '../assets/games/cyberpunk.jpg'
-import factorio from '../assets/games/factorio.jpg'
-import forza5 from '../assets/games/forza5.jpg'
-import minecraft from '../assets/games/minecraft.jpg'
-import terraria from '../assets/games/terraria.jpg'
+import game11 from '../assets/games/battlebit.jpg'
+import game12 from '../assets/games/cyberpunk.jpg'
+import game13 from '../assets/games/factorio.jpg'
+import game21 from '../assets/games/osugame.jpg'
+import game22 from '../assets/games/minecraft.jpg'
+import game23 from '../assets/games/terraria.jpg'
 
 import {FaCode, FaGamepad} from "react-icons/fa"
 
@@ -20,29 +20,29 @@ const About = () => {
     const gamesGroup1 = [
         {
             id: 1,
-            image: battlebit,
+            image: game11,
         },
         {
             id: 2,
-            image: cyberpunk,
+            image: game12,
         },
         {
             id: 3,
-            image: factorio,
+            image: game13,
         }
     ];
     const gamesGroup2 = [
         {
             id: 4,
-            image: forza5,
+            image: game21,
         },
         {
             id: 5,
-            image: minecraft,
+            image: game22,
         },
         {
             id: 6,
-            image: terraria,
+            image: game23,
         },
     ]
 
@@ -65,15 +65,20 @@ const About = () => {
     }, []);
 
     return (
-    <div className='w-full h-[200vh] bg-gradient-to-b from-gray-900 via-black to-black text-white'>
-        <div className='max-w-screen-lg p-4 mx-auto flex flex-col justify-center w-full h-full'>
-            <div className='pb-8'>
-                <h1 name="about" className='text-5xl font-bold inline border-b-4 border-gray-500'>About Me</h1>
+    <div className='w-full h-[150vh] bg-gradient-to-b from-gray-900 via-black to-gray-900 text-white'>
+        <div  className='max-w-screen-lg p-4 mx-auto flex flex-col py-16 w-full h-full'>
+            <div name="about" className='pb-8 pt-24'>
+                <h1 className='text-5xl font-bold inline border-b-4 border-gray-500'>About Me</h1>
             </div>
 
             <p className='text-xl mt-2 '>
-                  Hello, I am an 18 year student from Italy with a passion for gaming, programming and video/photo editing.
+                Hello, I am an 18 year student from Italy with a passion for gaming, programming, video editing and music.
             </p>
+
+            <p className="text-xl mt-4">
+                I have made various websites in vanilla HTML and CSS, including a Youtube style private streaming service, however this is my first React Js and Tailwind project.
+            </p>
+            
 
             <div className='flex flex-col gap-3 mt-3'>
                 <div className='max-w-screen-lg p-4 mx-auto flex flex-col justify-center w-full h-full'>
