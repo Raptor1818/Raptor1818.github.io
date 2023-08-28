@@ -27,9 +27,9 @@ const NavBar = () => {
   ]
 
     return (
-    <div className='flex justify-between items-center w-full h-20 px-4 text-white bg-black fixed'>
+    <div className='flex justify-between items-center w-full h-20 px-4 text-white bg-black fixed z-50'>
         <div>
-            <h1 className='text-5xl ibm-plex-m,ono italic ml-2'>RaptorHub</h1> {/*Place holder*/}
+            <h1 className='text-5xl ibm-plex-m,ono italic ml-2'>RaptorHub</h1>
         </div>
 
         <ul className="hidden md:flex">
@@ -40,7 +40,7 @@ const NavBar = () => {
                         to={link}
                         spy={true}
                         smooth={true}
-                        offset={-70} // Adjust the offset as needed
+                        offset={-70}
                         duration={500}
                     >
                         {link}
@@ -49,28 +49,30 @@ const NavBar = () => {
             ))}
         </ul>
         
-        <div onClick={() => setNav(!nav)} className='cursor-pointer pr-4 z-10 text-gray-500 md:hidden'>
+        <div onClick={() => setNav(!nav)} className='cursor-pointer pr-4 z-30 text-gray-500 md:hidden'>
             {nav ? <FaTimes size={30} /> : <FaBars size={30} />}
         </div>
 
         {nav && (
-            <ul className="flex flex-col justify-center items-center absolute top-0 left-0 w-full h-screen bg-gradient-to-b from-black via-black to-gray-900 text-gray-500 ">
-            {links.map(({ id, link }) => (
-                <li key={id} className='px-4 cursor-pointer capitalize py-6 text-4xl'>
-                    <Link
-                        onClick={() => setNav(!nav)}
-                        activeClass="active"
-                        to={link}
-                        spy={true}
-                        smooth={true}
-                        offset={-70} // Adjust the offset as needed
-                        duration={500}
-                    >
-                        {link}
-                    </Link>
-                </li>
-            ))}
-        </ul>
+        <div className="fixed top-0 left-0 w-full h-screen bg-gradient-to-b from-black via-black to-gray-900 text-gray-500 z-60"> {/* Increased z-index */}
+            <ul className="flex flex-col justify-center items-center h-full">
+                {links.map(({ id, link }) => (
+                    <li key={id} className='px-4 cursor-pointer capitalize py-6 text-4xl'>
+                        <Link
+                            onClick={() => setNav(!nav)}
+                            activeClass="active"
+                            to={link}
+                            spy={true}
+                            smooth={true}
+                            offset={-100}
+                            duration={500}
+                        >
+                            {link}
+                        </Link>
+                    </li>
+                ))}
+            </ul>
+        </div>
         )}
     </div>
   )

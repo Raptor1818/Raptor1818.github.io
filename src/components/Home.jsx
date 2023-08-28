@@ -52,9 +52,9 @@ const Home = () => {
     }, []);
     
   return (
-    <div name="home" className='h-screen w-full bg-gradient-to-b from-black via-black to-gray-900'>
-        <div className='max-w-screen-lg mx-auto flex flex-col md:items-center justify-center h-full px-4 md:flex-row'>
-            <div className='flex flex-col justify-center h-4 pl-12 mb-16'>
+    <div name="home" className='h-screen w-full bg-gradient-to-b from-black via-black to-gray-900 relative'>
+        <div className='max-w-screen-lg mx-auto flex flex-col md:items-center justify-center h-full px-4 md:flex-row pl-12'>
+            <div className='flex flex-col justify-center h-[8rem]'>
                 <h2 className='text-4xl sm:text-7xl font-bold text-white'>Welcome</h2>
                 <span className='text-gray-500 py-4 max-w-md text-xl'>
                     <Typewriter
