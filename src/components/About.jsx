@@ -1,0 +1,153 @@
+import React, { useState, useEffect } from 'react';
+
+import imageHtml from '../assets/html.png'
+import imageCss from '../assets/css.png'
+import imageReact from '../assets/react.png'
+import imageTailwind from '../assets/tailwind.png'
+import imageCPP from '../assets/cpp.png'
+import imageJava from '../assets/java.png'
+
+import battlebit from '../assets/games/battlebit.jpg'
+import cyberpunk from '../assets/games/cyberpunk.jpg'
+import factorio from '../assets/games/factorio.jpg'
+import forza5 from '../assets/games/forza5.jpg'
+import minecraft from '../assets/games/minecraft.jpg'
+import terraria from '../assets/games/terraria.jpg'
+
+import {FaCode, FaGamepad} from "react-icons/fa"
+
+const About = () => {
+    const gamesGroup1 = [
+        {
+            id: 1,
+            image: battlebit,
+        },
+        {
+            id: 2,
+            image: cyberpunk,
+        },
+        {
+            id: 3,
+            image: factorio,
+        }
+    ];
+    const gamesGroup2 = [
+        {
+            id: 4,
+            image: forza5,
+        },
+        {
+            id: 5,
+            image: minecraft,
+        },
+        {
+            id: 6,
+            image: terraria,
+        },
+    ]
+
+    const [currentGameIndexGroup1, setCurrentGameIndexGroup1] = useState(0);
+    const [currentGameIndexGroup2, setCurrentGameIndexGroup2] = useState(0);
+
+    useEffect(() => {
+        const intervalGroup1 = setInterval(() => {
+            setCurrentGameIndexGroup1((prevIndex) => (prevIndex + 1) % gamesGroup1.length);
+        }, 4000); // Change image every 4 seconds
+
+        const intervalGroup2 = setInterval(() => {
+            setCurrentGameIndexGroup2((prevIndex) => (prevIndex + 1) % gamesGroup2.length);
+        }, 4000); // Change image every 4 seconds
+
+        return () => {
+            clearInterval(intervalGroup1);
+            clearInterval(intervalGroup2);
+        };
+    }, []);
+
+    return (
+    <div className='w-full h-[200vh] bg-gradient-to-b from-gray-900 via-black to-black text-white'>
+        <div className='max-w-screen-lg p-4 mx-auto flex flex-col justify-center w-full h-full'>
+            <div className='pb-8'>
+                <h1 name="about" className='text-5xl font-bold inline border-b-4 border-gray-500'>About Me</h1>
+            </div>
+
+            <p className='text-xl mt-2 '>
+                  Hello, I am an 18 year student from Italy with a passion for gaming, programming and video/photo editing.
+            </p>
+
+            <div className='flex flex-col gap-3 mt-3'>
+                <div className='max-w-screen-lg p-4 mx-auto flex flex-col justify-center w-full h-full'>
+                    <div className='pb-8 flex flex-row justify-center items-center'>
+                        <FaCode className='px-2' size={60}/>
+                        <h className="text-4xl font-semibold mb-2">Languages I speak</h>
+                    </div>
+                    <div className='grid grid-cols-2 md:grid-cols-4 gap-8 px-12 sm:px-0 text-center'>
+                        <div>
+                            <img src={imageHtml} alt="HTML Logo" className='max-h-[216px] mx-auto' />
+                            <p className='p-3'>HTML</p>
+                        </div>
+                        <div>
+                            <img src={imageCss} alt="CSS Logo" className='max-h-[216px] mx-auto' />
+                            <p className='p-3'>CSS</p>
+                        </div>
+                        <div>
+                            <img src={imageCPP} alt="C++ Logo" className='max-h-[216px] mx-auto' />
+                            <p className='p-3'>C++</p>
+                        </div>
+                        <div>
+                            <img src={imageJava} alt="Java Logo" className='max-h-[216px] mx-auto' />
+                            <p className='p-3'>Java</p>
+                        </div>
+                    </div>
+                </div>
+                <div className='flex flex-col sm:flex-row items-center'>
+                    <div className='max-w-screen-lg p-4 mx-auto'>
+                        <div className='pb-8 flex flex-row justify-center items-center'>
+                            <FaGamepad className='px-2' size={60} />
+                            <h2 className="text-4xl font-semibold mb-2">Favourite Games</h2>
+                        </div>
+                        <div className='grid grid-cols-2 gap-8 px-12 sm:px-0 text-center'>
+                            <div className='relative'>
+                                {gamesGroup1.map((game, index) => (
+                                    <div
+                                        key={index}
+                                        className={`transition-opacity duration-1000 ${
+                                            currentGameIndexGroup1 === index ? 'opacity-100' : 'opacity-0'
+                                        } absolute inset-0`}
+                                    >
+                                        <img
+                                            src={game.image}
+                                            alt={`Game ${index}`}
+                                            className='max-h-[216px] mx-auto'
+                                        />
+                                    </div>
+                                ))}
+                            </div>
+                            <div className='relative' name='gruppo 2'>
+                                {gamesGroup2.map((game, index) => (
+                                    <div
+                                        key={index}
+                                        className={`transition-opacity duration-1000 ${
+                                            currentGameIndexGroup2 === index ? 'opacity-100' : 'opacity-0'
+                                        } absolute inset-0`}
+                                    >
+                                        <img
+                                            src={game.image}
+                                            alt={`Game ${index}`}
+                                            className='max-h-[216px] mx-auto'
+                                        />
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+
+            </div>
+        </div>
+    </div>
+  )
+}
+
+export default About
