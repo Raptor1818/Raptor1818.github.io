@@ -37,10 +37,9 @@ const Home = () => {
         "At the gym",
         ":trolleybus:",
         "There is nothing wrong with fries on pizza.",
-        "Peak osu!std rank #58k",
+        "Peak osu!std rank: #58k",
         "Don't drink and code",
-        "Whitecat is my dad",
-        "                        "
+        "Whitecat is my dad"
     ]
 
     const [shuffledStrings, setShuffledStrings] = useState([]);
