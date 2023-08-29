@@ -4,6 +4,7 @@ import Home from './components/Home'
 import About from './components/About'
 import SocialsSection from './components/SocialsSection'
 import MyThings from './components/MyThings'
+import Footer from './components/Footer'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -13,8 +14,11 @@ function App() {
         <NavBar  />
         <Home />
         <About />
-        <MyThings />
-        <SocialsSection /> 
+        {
+        //<MyThings />
+        //<SocialsSection />
+        }
+        <Footer /> 
     </div>
   )
 }
