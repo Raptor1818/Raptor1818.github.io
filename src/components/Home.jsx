@@ -39,7 +39,8 @@ const Home = () => {
         "There is nothing wrong with fries on pizza.",
         "Peak osu!std rank: #58k",
         "Don't drink and code",
-        "Whitecat is my dad"
+        "Whitecat is my dad",
+        "Segmention fault (core dumped)"
     ]
 
     const [shuffledStrings, setShuffledStrings] = useState([]);

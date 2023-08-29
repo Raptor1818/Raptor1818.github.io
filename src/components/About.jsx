@@ -65,7 +65,7 @@ const About = () => {
     }, []);
 
     return (
-    <div className='w-full h-[150vh] bg-gradient-to-b from-gray-900 via-black to-gray-900 text-white'>
+    <div className='w-full h-[210vh] bg-gradient-to-b from-gray-900 via-black to-gray-900 text-white'>
         <div  className='max-w-screen-lg p-4 mx-auto flex flex-col py-16 w-full h-full'>
             <div name="about" className='pb-8 pt-24 flex flex-row justify-center items-center'>
                 <FaUser size={32} />
