@@ -14,7 +14,7 @@ const SocialLinks = () => {
             </>
             ),
             href: 'https://twitter.com/_Raptorr',
-            style: 'rounded-td-md'
+            style: 'rounded-tr-md'
         },
         {
             id: 2,
@@ -53,7 +53,7 @@ const SocialLinks = () => {
             </>
             ),
             href: 'https://osu.ppy.sh/users/15854778',
-            style: 'rounded-td-md'
+            style: 'rounded-br-md'
         },
     ]
 
@@ -64,7 +64,7 @@ const SocialLinks = () => {
                     <li
                         key={id}
                         className={
-                            'flex justify-between items-center w-40 h-14 px-4 ml-[-100px] bg-gray-500 hover:ml-[-10px] rounded-md duration-300' +
+                            'flex justify-between items-center w-40 h-14 px-4 ml-[-100px] bg-gray-500 hover:ml-[-10px] hover:rounded-md duration-300' +
                             ' ' +
                             style
                         }
