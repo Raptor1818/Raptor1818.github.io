@@ -10,23 +10,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Set Git User
-        run: |
-          git config --global user.email "${{ secrets.USER_EMAIL }}"
-          git config --global user.name "${{ secrets.USER_NAME }}"
-
       - name: Checkout Code
         uses: actions/checkout@v2
 
-      - name: Install Dependencies
-        run: npm install
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16
 
-      - name: Build Production
+      - name: Install dependencies
+        uses: bahmutov/npm-install@v1
+
+      - name: Build project
         run: npm run build
 
-      - name: Create and Push to Deployment Branch
+      - name: Create and Push Deployment Branch
         run: |
-          git checkout -b deploy-build-vps
+          git checkout -b website-build
 
           git rm -r .
 
@@ -34,7 +34,10 @@ jobs:
 
           git add .
 
-          git commit -m "Deploy production build to vps"
+          git config user.email "${{ secrets.USER_EMAIL }}"
+          git config user.name "${{ secrets.USER_NAME }}"
+
+          git commit -m "Deploy production build"
 
           git push origin deploy
 
@@ -45,8 +48,7 @@ jobs:
           username: ${{ secrets.VPS_USERNAME }}
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
-            rm -rfv /home/raptor/Github/raptorino/
+            git clone --branch deploy https://github.com/Raptor1818/raptorino.git /home/raptor/Github/raptorino/
 
-            scp -rv $GITHUB_WORKSPACE/dist/* /home/raptor/Github/raptorino/
-
-            systemctl reload nginx
+            cd /home/raptor/Github/raptorino/
+            git branch -d deploy
