@@ -57,9 +57,20 @@ jobs:
           git fetch origin gh-pages:gh-pages || git checkout --orphan gh-pages
           git checkout gh-pages
 
+      - name: Set Git user identity
+        run: |
+          git config user.name "Raptor1818"
+          git config user.email "francyoppureno@gmail.com"
+
       - name: Copy build files to "gh-pages" branch
         run: |
           cp -r ./dist/* ./
           git add .
           git commit -m "Update from main branch"
+          
+          # Set up Git credentials using the GitHub token
+          git config credential.helper store
+          git config credential.helper 'cache --timeout=3600'
+          
+          # Push to the remote repository using the GitHub token
           git push --force origin gh-pages
