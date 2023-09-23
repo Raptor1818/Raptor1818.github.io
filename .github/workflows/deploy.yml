@@ -25,12 +25,6 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Upload production-ready build files
-        uses: actions/upload-artifact@v2
-        with:
-          name: production-files
-          path: ./dist
-
   deploy:
     name: Deploy
     needs: build
@@ -59,7 +53,6 @@ jobs:
 
       - name: Copy build files to "gh-pages" branch
         run: |
-          rm -rf ./*
           cp -r ./dist/* ./
           git add .
           git commit -m "Update from main branch"
