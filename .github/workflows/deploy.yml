@@ -62,6 +62,7 @@ jobs:
           git config user.name "Raptor1818"
           git config user.email "francyoppureno@gmail.com"
 
+
       - name: Copy build files to "gh-pages" branch
         run: |
           cp -r ./dist/* ./
@@ -69,8 +70,8 @@ jobs:
           git commit -m "Update from main branch"
           
           # Set up Git credentials using the GitHub token
-          git config credential.helper store
-          git config credential.helper 'cache --timeout=3600'
-          
+          git config --local credential.helper 'store --file ~/.git-credentials'
+          echo "https://github.com:${{ secrets.GITHUB_TOKEN }}" > ~/.git-credentials
+            
           # Push to the remote repository using the GitHub token
           git push --force origin gh-pages
