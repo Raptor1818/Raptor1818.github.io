@@ -48,10 +48,11 @@ jobs:
         run: |
           echo 'raptorino.com' > ./dist/CNAME
 
-      - name: Checkout "gh-pages" branch or create it if it doesn't exist
+      - name: Initialize Git repository in the "gh-pages" branch
         run: |
-          git config user.name "$USER_NAME"
-          git config user.email "$USER_EMAIL"
+          git init
+          git config user.name "$USER_NAME_SECRET"
+          git config user.email "$USER_EMAIL_SECRET"
           git fetch origin gh-pages:gh-pages || git checkout --orphan gh-pages
           git checkout gh-pages
 
