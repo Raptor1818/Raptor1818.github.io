@@ -1,4 +1,4 @@
-name: Deploy to VPS
+name: Deploy
 
 on:
   push:
@@ -6,11 +6,12 @@ on:
       - main
 
 jobs:
-  deploy:
+  build:
+    name: Build
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Code
+      - name: Checkout repo
         uses: actions/checkout@v2
 
       - name: Setup Node
@@ -24,22 +25,24 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Create and Push Deployment Branch
-        run: |
-          git checkout -b website-build
+      - name: Upload production-ready build files
+        uses: actions/upload-artifact@v2
+        with:
+          name: production-files
+          path: ./dist
 
-          git rm -r .
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
 
-          cp -r $GITHUB_WORKSPACE/dist/* .
-
-          git add .
-
-          git config user.email "${{ secrets.USER_EMAIL }}"
-          git config user.name "${{ secrets.USER_NAME }}"
-
-          git commit -m "Deploy production build"
-
-          git push origin deploy
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: production-files
+          path: ./dist
 
       - name: Deploy to VPS
         uses: appleboy/ssh-action@master
@@ -48,7 +51,8 @@ jobs:
           username: ${{ secrets.VPS_USERNAME }}
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
-            git clone --branch deploy https://github.com/Raptor1818/raptorino.git /home/raptor/Github/raptorino/
+            rm -rfv /home/raptor/Github/raptorino/
 
-            cd /home/raptor/Github/raptorino/
-            git branch -d deploy
+            scp -rv $GITHUB_WORKSPACE/dist/* /home/raptor/Github/raptorino/
+
+            systemctl reload nginx
