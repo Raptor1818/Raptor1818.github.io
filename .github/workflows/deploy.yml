@@ -1,4 +1,4 @@
-name: Deploy
+name: Build and Deploy
 
 on:
   push:
@@ -20,7 +20,7 @@ jobs:
           node-version: 16
 
       - name: Install dependencies
-        uses: bahmutov/npm-install@v1
+        run: npm ci
 
       - name: Build project
         run: npm run build
@@ -48,8 +48,14 @@ jobs:
         run: |
           echo 'raptorino.com' > ./dist/CNAME
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+      - name: Commit and push to the "gh-pages" branch
+        env: 
+            USER_NAME_SECRET: ${{ secrets.USER_NAME }}
+            USER_EMAIL_SECRET: ${{ secrets.USER_EMAIL }}
+        run: |
+          git config user.name "$USER_NAME_SECRET"
+          git config user.email "$USER_EMAIL_SECRET"
+          git checkout -b gh-pages
+          git add .
+          git commit -m "Update from main branch"
+          git push --force origin gh-pages
