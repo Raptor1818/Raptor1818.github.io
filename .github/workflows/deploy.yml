@@ -51,9 +51,9 @@ jobs:
           username: ${{ secrets.VPS_USERNAME }}
           key: ${{ secrets.VPS_SSH_KEY }}
           passphrase: ${{ secrets.SUDO_PASS }}
+          debug: true
           script: |
-            sudo rm -rfv /home/raptor/Github/raptorino/
-
-            sudo scp -rv $GITHUB_WORKSPACE/dist/* /home/raptor/Github/raptorino/
-
-            sudo systemctl reload nginx
+              sudo rm -rfv /home/raptor/Github/raptorino/
+              sudo scp -rv $GITHUB_WORKSPACE/dist/* /home/raptor/Github/raptorino/
+              sudo systemctl reload nginx
+        
