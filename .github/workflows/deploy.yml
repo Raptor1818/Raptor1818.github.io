@@ -48,14 +48,17 @@ jobs:
         run: |
           echo 'raptorino.com' > ./dist/CNAME
 
-      - name: Commit and push to the "gh-pages" branch
-        env: 
-            USER_NAME_SECRET: ${{ secrets.USER_NAME }}
-            USER_EMAIL_SECRET: ${{ secrets.USER_EMAIL }}
+      - name: Checkout "gh-pages" branch or create it if it doesn't exist
         run: |
-          git config user.name "$USER_NAME_SECRET"
-          git config user.email "$USER_EMAIL_SECRET"
-          git checkout -b gh-pages
+          git config user.name "$USER_NAME"
+          git config user.email "$USER_EMAIL"
+          git fetch origin gh-pages:gh-pages || git checkout --orphan gh-pages
+          git checkout gh-pages
+
+      - name: Copy build files to "gh-pages" branch
+        run: |
+          rm -rf ./*
+          cp -r ./dist/* ./
           git add .
           git commit -m "Update from main branch"
           git push --force origin gh-pages
