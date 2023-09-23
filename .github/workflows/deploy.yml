@@ -51,16 +51,11 @@ jobs:
       - name: Initialize Git repository in the "gh-pages" branch
         run: |
           git init
-          git config user.name "$USER_NAME_SECRET"
-          git config user.email "$USER_EMAIL_SECRET"
+          git config user.name "Raptor1818"
+          git config user.email "francyoppureno@gmail.com"
           git remote add origin https://github.com/Raptor1818/Raptor1818.github.io.git
           git fetch origin gh-pages:gh-pages || git checkout --orphan gh-pages
           git checkout gh-pages
-
-      - name: Set Git user identity
-        run: |
-          git config user.name "$USER_NAME_SECRET"
-          git config user.email "$USER_EMAIL_SECRET"
 
       - name: Copy build files to "gh-pages" branch
         run: |
