@@ -25,7 +25,6 @@ jobs:
       - name: Build project
         run: npm run build
 
-
       - name: Upload production-ready build files
         uses: actions/upload-artifact@v2
         with:
@@ -57,6 +56,11 @@ jobs:
           git remote add origin https://github.com/Raptor1818/Raptor1818.github.io.git
           git fetch origin gh-pages:gh-pages || git checkout --orphan gh-pages
           git checkout gh-pages
+
+      - name: Set Git user identity
+        run: |
+          git config user.name "$USER_NAME_SECRET"
+          git config user.email "$USER_EMAIL_SECRET"
 
       - name: Copy build files to "gh-pages" branch
         run: |
