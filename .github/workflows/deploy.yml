@@ -20,7 +20,7 @@ jobs:
           node-version: 16
 
       - name: Install dependencies
-        run: npm install
+        uses: bahmutov/npm-install@v1
 
       - name: Build project
         run: npm run build
@@ -29,8 +29,8 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: production-files
-          path: dist/
-          
+          path: ./dist
+
   deploy:
     name: Deploy
     needs: build
@@ -38,28 +38,14 @@ jobs:
     if: github.ref == 'refs/heads/main'
 
     steps:
-      - name: Initialize Git repository
-        run: |
-          git config --global user.email "you@example.com"
-          git config --global user.name "Your Name"
-          git init
-          git remote add origin https://github.com/yourusername/yourrepository.git
-          git fetch
-          git checkout -b deploy-branch
-
       - name: Download artifact
         uses: actions/download-artifact@v2
         with:
           name: production-files
-          path: dist/
+          path: ./dist
 
-      - name: Deploy to VPS
-        uses: appleboy/ssh-action@master
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          host: ${{ secrets.VPS_HOST }}
-          username: ${{ secrets.VPS_USERNAME }}
-          key: ${{ secrets.VPS_SSH_KEY }}
-          script: |
-            # Assuming the new branch is deploy-branch
-            git clone --branch deploy-branch https://github.com/Raptor1818/raptorino.git /home/githubactions/Github/raptorino/
-            sudo systemctl reload nginx
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
