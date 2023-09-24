@@ -45,8 +45,7 @@ jobs:
           git init
           git add -A
           git commit -m "Deploy build files"
-          git branch deploy-branch
-          git checkout deploy-branch
+          git checkout -b deploy-branch
           git remote add origin https://github.com/Raptor1818/raptorino.git
           git push origin deploy-branch
 
@@ -63,6 +62,5 @@ jobs:
           username: ${{ secrets.VPS_USERNAME }}
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
-            # Assuming the new branch is deploy-branch
             git clone --branch deploy-branch https://github.com/Raptor1818/raptorino.git /home/githubactions/Github/raptorino/
             sudo systemctl reload nginx
