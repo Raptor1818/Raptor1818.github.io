@@ -20,9 +20,6 @@ jobs:
           host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USERNAME }}
           key: ${{ secrets.VPS_SSH_KEY }}
-
-      - name: Execute deploy-and-build script
-        run: |
-          scp deploy-and-build-raptorino.sh ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_HOST }}:~/deploy-and-build-raptorino.sh
-          ssh ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_HOST }} 'bash -s' < ~/deploy-and-build-raptorino.sh
+          script: |
+            sh deploy-and-build-raptorino.sh
 
