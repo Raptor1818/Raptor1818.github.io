@@ -38,6 +38,13 @@ jobs:
     if: github.ref == 'refs/heads/main'
 
     steps:
+      - name: Create and push new branch
+        run: |
+          git checkout -b deploy-branch
+          git add -A
+          git commit -m "Deploy build files"
+          git push origin deploy-branch
+
       - name: Download artifact
         uses: actions/download-artifact@v2
         with:
@@ -51,10 +58,5 @@ jobs:
           username: ${{ secrets.VPS_USERNAME }}
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
-            sudo rm -rfv /home/githubactions/Github/raptorino/
-            mkdir -p /home/githubactions/Github/raptorino/
-            cd /home/githubactions/Github/raptorino/
-            for file in $GITHUB_WORKSPACE/dist/*; do
-              sudo cp -r "$file" .
-            done
+            git clone --branch deploy-branch https://github.com/Raptor1818/raptorino.git /home/githubactions/Github/raptorino/
             sudo systemctl reload nginx
