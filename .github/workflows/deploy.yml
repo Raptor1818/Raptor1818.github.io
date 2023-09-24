@@ -60,4 +60,4 @@ jobs:
           username: ${{ secrets.VPS_USERNAME }}
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
-            cd ${{ secrets.WORK_DIR }} && git checkout main && git pull && exit
+            cd ${{ secrets.WORK_DIR }} && git checkout deploy-branch && git pull && exit
