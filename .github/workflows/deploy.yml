@@ -23,7 +23,7 @@ jobs:
 
       - name: Pull repository changes and build
         run: |
-          cd ${{ secrets.WORK_DIR }}
+          cd /var/www/raptorino/
           git pull origin main
           npm install
           npm run build
