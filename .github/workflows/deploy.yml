@@ -52,12 +52,3 @@ jobs:
         with:
           name: production-files
           path: dist/
-
-      - name: Deploy to VPS
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.VPS_HOST }}
-          username: ${{ secrets.VPS_USERNAME }}
-          key: ${{ secrets.VPS_SSH_KEY }}
-          script: |
-            cd ${{ secrets.WORK_DIR }} && rm -rf * && git checkout main && git pull && exit
