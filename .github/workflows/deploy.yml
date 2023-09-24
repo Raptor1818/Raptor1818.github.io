@@ -38,12 +38,14 @@ jobs:
     if: github.ref == 'refs/heads/main'
 
     steps:
-      - name: Create and push new branch
+      - name: Initialize Git repository
         run: |
+          git config --global user.email "you@example.com"
+          git config --global user.name "Your Name"
+          git init
+          git remote add origin https://github.com/yourusername/yourrepository.git
+          git fetch
           git checkout -b deploy-branch
-          git add -A
-          git commit -m "Deploy build files"
-          git push origin deploy-branch
 
       - name: Download artifact
         uses: actions/download-artifact@v2
@@ -58,5 +60,6 @@ jobs:
           username: ${{ secrets.VPS_USERNAME }}
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
-            git clone --branch deploy-branch https://github.com/Raptor1818/raptorino.git /home/githubactions/Github/raptorino/
+            # Assuming the new branch is deploy-branch
+            git clone --branch deploy-branch https://github.com/yourusername/yourrepository.git /home/githubactions/Github/raptorino/
             sudo systemctl reload nginx
