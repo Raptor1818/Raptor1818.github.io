@@ -51,9 +51,9 @@ jobs:
           username: ${{ secrets.VPS_USERNAME }}
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
-            sudo rm -rfv /home/raptor/Github/raptorino/
-            mkdir -p /home/raptor/Github/raptorino/
-            cd /home/raptor/Github/raptorino/
+            sudo rm -rfv /home/githubactions/Github/raptorino/
+            mkdir -p /home/githubactions/Github/raptorino/
+            cd /home/githubactions/Github/raptorino/
             for file in $GITHUB_WORKSPACE/dist/*; do
               sudo cp -r "$file" .
             done
