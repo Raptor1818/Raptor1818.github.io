@@ -30,7 +30,7 @@ jobs:
         with:
           name: production-files
           path: ./dist
-
+          
   deploy:
     name: Deploy
     needs: build
@@ -38,17 +38,23 @@ jobs:
     if: github.ref == 'refs/heads/main'
 
     steps:
+      - name: Initialize Git repository
+        run: |
+          git config --global user.email "${{ secrets.USER_EMAIL }}"
+          git config --global user.name "${{ secrets.USER_NAME }}"
+          git init
+          git add -A
+          git commit -m "Deploy build files"
+          git branch deploy-branch
+          git checkout deploy-branch
+          git remote add origin https://github.com/Raptor1818/raptorino.git
+          git push origin deploy-branch
+
       - name: Download artifact
         uses: actions/download-artifact@v2
         with:
           name: production-files
-          path: ./dist
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          path: dist/
 
       - name: Deploy to VPS
         uses: appleboy/ssh-action@master
@@ -57,5 +63,6 @@ jobs:
           username: ${{ secrets.VPS_USERNAME }}
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
-            git clone --branch gh-pages https://github.com/Raptor1818/raptorino.git /home/githubactions/Github/raptorino/
+            # Assuming the new branch is deploy-branch
+            git clone --branch deploy-branch https://github.com/Raptor1818/raptorino.git /home/githubactions/Github/raptorino/
             sudo systemctl reload nginx
