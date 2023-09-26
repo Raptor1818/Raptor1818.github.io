@@ -6,16 +6,16 @@ const StarField = () => {
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
-    
-    // Function to generate a random star
+
     const generateStar = () => ({
       x: Math.random() * canvas.width,
-      y: Math.random() * (canvas.height / 3.5),
+      y: Math.random() * (canvas.height / 1.5),
       radius: Math.random() * 2,
       opacity: Math.random(),
+      flickerSpeed: (Math.random() - 0.5) * 0.01, // Vary the flicker speed
+      flickerThreshold: Math.random() * 0.2 + 0.8, // Vary the flicker threshold
     });
 
-    // Function to draw a star
     const drawStar = (star) => {
       ctx.beginPath();
       ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
@@ -23,37 +23,44 @@ const StarField = () => {
       ctx.fill();
     };
 
-    // Initialize an array of stars
-    const stars = Array.from({ length: 200 }, generateStar);
+    const calculateStarCount = () => {
+      // Adjust star density based on screen width
+      if (window.innerWidth <= 600) {
+        return 100;
+      } else {
+        return 200;
+      }
+    };
 
-    // Animation loop
+    let stars = Array.from({ length: calculateStarCount() }, generateStar);
+
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       stars.forEach((star) => {
         drawStar(star);
-        star.opacity += (Math.random() - 0.5) * 0.01; // Flicker effect
-        if (star.opacity > 1) star.opacity = 1;
-        if (star.opacity < 0) star.opacity = 0;
+
+        // Apply the flicker effect
+        star.opacity += star.flickerSpeed;
+        if (star.opacity > star.flickerThreshold || star.opacity < 0) {
+          star.flickerSpeed = -star.flickerSpeed;
+        }
       });
 
       requestAnimationFrame(animate);
     };
 
-    // Resize the canvas to match its parent container
     const resizeCanvas = () => {
       canvas.width = canvas.parentElement.clientWidth;
       canvas.height = canvas.parentElement.clientHeight;
+      stars = Array.from({ length: calculateStarCount() }, generateStar);
     };
 
-    // Initial setup
     resizeCanvas();
     animate();
 
-    // Event listener to handle window resize
     window.addEventListener('resize', resizeCanvas);
 
-    // Cleanup when the component unmounts
     return () => {
       window.removeEventListener('resize', resizeCanvas);
     };
