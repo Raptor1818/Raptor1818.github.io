@@ -16,9 +16,11 @@ import game6 from '../assets/games/terraria.jpg'*/}
 
 import {FaCode, FaGamepad, FaUser} from "react-icons/fa"
 
+import SteamMiniProfile from './SteamMiniProfile'
+
 const About = () => {
     return (
-    <div className='w-full h-[210vh] bg-gradient-to-b from-gray-900 via-black to-gray-900 text-white'>
+    <div className='w-full h-[220vh] bg-gradient-to-b from-gray-900 via-black to-gray-900 text-white'>
         <div  className='max-w-screen-lg p-4 mx-auto flex flex-col py-16 w-full h-full'>
             <div name="about" className='pb-8 pt-24 flex flex-row justify-center items-center'>
                 <FaUser size={32} />
@@ -65,6 +67,8 @@ const About = () => {
                             <h2 className="text-4xl font-semibold mb-2 text-center md:w-auto w-min">Gaming Related</h2>
                         </div>
                         
+                        <SteamMiniProfile className='h-[400px] w-[600px]'/>
+
                         {/*<div className='grid grid-cols-3 gap-8 px-12 sm:px-0 text-center'></div>*/}
                     </div>
                 </div>
