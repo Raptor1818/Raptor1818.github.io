@@ -38,28 +38,29 @@ const About = () => {
             <div className='flex flex-col gap-3 mt-12'>
                 <div className='max-w-screen-lg p-4 pb-24 mx-auto flex flex-col justify-center w-full h-full'>
                     <div className='pb-8 flex flex-row justify-center items-center'>
-                        <FaCode className='px-2' size={60}/>
+                        <FaCode className='px-2' size={60} />
                         <h1 className="md:text-5xl text-4xl font-semibold mb-2 text-center md:w-auto w-min">Languages I speak</h1>
                     </div>
-                    <div className='grid grid-cols-2 md:grid-cols-4 gap-5 px-12 sm:px-0 text-center hover:transform'>
-                        <div className='shadow-md shadow-orange-600 rounded-md p-2'>
-                            <img src={imageHtml} alt="HTML Logo" className='max-h-[128px] mx-auto' />
-                            <p className='p-3'>HTML</p>
+                    <div className='grid grid-cols-2 md:grid-cols-4 gap-5 px-12 sm:px-0 text-center'>
+                        <div className='shadow-md shadow-orange-600 rounded-md p-2 hover:scale-105 transform transition-transform duration-300'>
+                        <img src={imageHtml} alt="HTML Logo" className='max-h-[128px] mx-auto' />
+                        <p className='p-3'>HTML</p>
                         </div>
-                        <div className='shadow-md shadow-blue-400 rounded-md p-2'>
-                            <img src={imageCss} alt="CSS Logo" className='max-h-[128px] mx-auto' />
-                            <p className='p-3'>CSS</p>
+                        <div className='shadow-md shadow-blue-400 rounded-md p-2 hover:scale-105 transform transition-transform duration-300'>
+                        <img src={imageCss} alt="CSS Logo" className='max-h-[128px] mx-auto' />
+                        <p className='p-3'>CSS</p>
                         </div>
-                        <div className='shadow-md shadow-blue-800 rounded-md p-2'>
-                            <img src={imageCPP} alt="C++ Logo" className='max-h-[128px] mx-auto' />
-                            <p className='p-3'>C++</p>
+                        <div className='shadow-md shadow-blue-800 rounded-md p-2 hover:scale-105 transform transition-transform duration-300'>
+                        <img src={imageCPP} alt="C++ Logo" className='max-h-[128px] mx-auto' />
+                        <p className='p-3'>C++</p>
                         </div>
-                        <div className='shadow-md shadow-orange-400 rounded-md p-2'>
-                            <img src={imageJava} alt="Java Logo" className='max-h-[128px] mx-auto' />
-                            <p className='p-3'>Java</p>
+                        <div className='shadow-md shadow-orange-400 rounded-md p-2 hover:scale-105 transform transition-transform duration-300'>
+                        <img src={imageJava} alt="Java Logo" className='max-h-[128px] mx-auto' />
+                        <p className='p-3'>Java</p>
                         </div>
                     </div>
                 </div>
+
                 <div className='flex flex-col sm:flex-row items-center'>
                     <div className='max-w-screen-lg p-4 mx-auto items-center'>
                         <div className='pb-8 flex flex-row justify-center items-center'>
