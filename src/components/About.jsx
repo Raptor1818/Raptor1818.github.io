@@ -64,9 +64,7 @@ const About = () => {
                             <FaGamepad className='px-2' size={60} />
                             <h2 className="text-4xl font-semibold mb-2 text-center md:w-auto w-min">Gaming Related</h2>
                         </div>
-
-                        {/*<iframe src="https://gamer2810.github.io/steam-miniprofile/?accountId=76561198995572767" height="400px" width="600px"></iframe> WORK IN PROGRESS*/}
-
+                        
                         {/*<div className='grid grid-cols-3 gap-8 px-12 sm:px-0 text-center'></div>*/}
                     </div>
                 </div>
