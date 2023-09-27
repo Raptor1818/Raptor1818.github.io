@@ -5,7 +5,6 @@ import About from './components/About'
 import SocialsSection from './components/SocialsSection'
 import MyThings from './components/MyThings'
 import Footer from './components/Footer'
-import StarField from './components/StarField'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -13,7 +12,6 @@ function App() {
   return (
     <div className="app overflow-hidden">
       <NavBar />
-      <StarField />
       <Home />
       <About />
       {
