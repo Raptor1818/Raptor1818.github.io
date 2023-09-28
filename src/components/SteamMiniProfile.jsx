@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './steamMiniProfileCSS/shared_global.css'
+import './steamMiniProfileCSS/shared_global.css';
 
 const SteamMiniProfile = ({ accountId }) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -17,7 +17,12 @@ const SteamMiniProfile = ({ accountId }) => {
         const data = await response.text();
 
         if (data && data.length !== 0) {
-          setMiniProfileHTML(data);
+          // Remove spans and divs with specific classes
+          let modifiedData = removeSpanWithClass(data, 'friend_status_offline');
+          modifiedData = removeDivWithClass(modifiedData, 'xp');
+          // Add more calls for other classes as needed
+
+          setMiniProfileHTML(modifiedData);
           setIsLoading(false);
         }
       } catch (error) {
@@ -27,6 +32,30 @@ const SteamMiniProfile = ({ accountId }) => {
 
     fetchMiniProfile();
   }, [accountId]);
+
+  const removeSpanWithClass = (data, className) => {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(data, 'text/html');
+    const spansToRemove = doc.querySelectorAll(`span.${className}`);
+
+    spansToRemove.forEach((spanToRemove) => {
+      spanToRemove.remove();
+    });
+
+    return doc.documentElement.innerHTML;
+  };
+
+  const removeDivWithClass = (data, className) => {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(data, 'text/html');
+    const divsToRemove = doc.querySelectorAll(`div.${className}`);
+
+    divsToRemove.forEach((divToRemove) => {
+      divToRemove.remove();
+    });
+
+    return doc.documentElement.innerHTML;
+  };
 
   return (
     <div dangerouslySetInnerHTML={{ __html: miniProfileHTML }} />
