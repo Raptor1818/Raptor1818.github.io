@@ -20,6 +20,7 @@ const SteamMiniProfile = ({ accountId }) => {
           // Remove spans and divs with specific classes
           let modifiedData = removeSpanWithClass(data, 'friend_status_offline');
           modifiedData = removeDivWithClass(modifiedData, 'xp');
+          modifiedData = removeSpanWithClass(data, 'friend_status_online');
           // Add more calls for other classes as needed
 
           setMiniProfileHTML(modifiedData);
