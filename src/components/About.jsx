@@ -28,7 +28,7 @@ const About = () => {
             </div>
 
             <p className='text-xl mt-2 '>
-                Hello, I am an 18 year student from Italy with a passion for gaming, programming, video editing and music.
+                Hello, I am an 18 year old student from Italy with a passion for gaming, programming, video editing and music.
             </p>
 
             <p className="text-xl mt-4">
