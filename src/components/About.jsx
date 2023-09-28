@@ -6,6 +6,7 @@ import imageReact from '../assets/react.png'
 import imageTailwind from '../assets/tailwind.png'
 import imageCPP from '../assets/cpp.png'
 import imageJava from '../assets/java.png'
+import imageSteamReplay from '../assets/games/SteamReplay2022.png'
 
 {/*import game1 from '../assets/games/battlebit.jpg'
 import game2 from '../assets/games/cyberpunk.jpg'
@@ -14,13 +15,13 @@ import game4 from '../assets/games/osugame.jpg'
 import game5 from '../assets/games/minecraft.jpg'
 import game6 from '../assets/games/terraria.jpg'*/}
 
-import {FaCode, FaGamepad, FaUser} from "react-icons/fa"
+import {FaCode, FaGamepad, FaUser, FaBookReader} from "react-icons/fa"
 
 import SteamMiniProfile from './SteamMiniProfile'
 
 const About = () => {
     return (
-    <div className='w-full h-[220vh] bg-gradient-to-b from-gray-900 via-black to-gray-900 text-white'>
+    <div className='w-full h-fit bg-gradient-to-b from-gray-900 via-black to-gray-900 text-white'>
         <div  className='max-w-screen-lg p-4 mx-auto flex flex-col py-16 w-full h-full'>
             <div name="about" className='pb-8 pt-24 flex flex-row justify-center items-center'>
                 <FaUser size={32} />
@@ -42,21 +43,35 @@ const About = () => {
                         <h1 className="md:text-5xl text-4xl font-semibold mb-2 text-center md:w-auto w-min">Languages I speak</h1>
                     </div>
                     <div className='grid grid-cols-2 md:grid-cols-4 gap-5 px-12 sm:px-0 text-center'>
-                        <div className='shadow-md shadow-orange-600 rounded-md p-2 hover:scale-105 transform transition-transform duration-300'>
+                        <div className='shadow-md shadow-[#e44d26] rounded-md p-2 hover:scale-105 transform transition-transform duration-300'>
                         <img src={imageHtml} alt="HTML Logo" className='max-h-[128px] mx-auto' />
                         <p className='p-3'>HTML</p>
                         </div>
-                        <div className='shadow-md shadow-blue-400 rounded-md p-2 hover:scale-105 transform transition-transform duration-300'>
+                        <div className='shadow-md shadow-[#039be5] rounded-md p-2 hover:scale-105 transform transition-transform duration-300'>
                         <img src={imageCss} alt="CSS Logo" className='max-h-[128px] mx-auto' />
                         <p className='p-3'>CSS</p>
                         </div>
-                        <div className='shadow-md shadow-blue-800 rounded-md p-2 hover:scale-105 transform transition-transform duration-300'>
+                        <div className='shadow-md shadow-[#004283] rounded-md p-2 hover:scale-105 transform transition-transform duration-300'>
                         <img src={imageCPP} alt="C++ Logo" className='max-h-[128px] mx-auto' />
                         <p className='p-3'>C++</p>
                         </div>
-                        <div className='shadow-md shadow-orange-400 rounded-md p-2 hover:scale-105 transform transition-transform duration-300'>
+                        <div className='shadow-md shadow-[#e26c00] rounded-md p-2 hover:scale-105 transform transition-transform duration-300'>
                         <img src={imageJava} alt="Java Logo" className='max-h-[128px] mx-auto' />
                         <p className='p-3'>Java</p>
+                        </div>
+                    </div>
+                    <div className='pb-8 mt-16 flex flex-row justify-center items-center'>
+                        <FaBookReader className='px-2' size={45} />
+                        <h1 className="md:text-3xl text-2xl font-semibold mb-2 text-center md:w-auto w-min">New to</h1>
+                    </div>
+                    <div className='grid grid-cols-2 gap-5 px-12 sm:px-0 text-center'>
+                        <div className='shadow-md shadow-[#00d6fe] rounded-md p-2 hover:scale-105 transform transition-transform duration-300'>
+                        <img src={imageReact} alt="React JS Logo" className='max-h-[128px] mx-auto' />
+                        <p className='p-3'>React JS</p>
+                        </div>
+                        <div className='shadow-md shadow-[#44a8b3] rounded-md p-2 hover:scale-105 transform transition-transform duration-300'>
+                        <img src={imageTailwind} alt="Tailwind Logo" className='max-h-[128px] mx-auto' />
+                        <p className='p-3'>Tailwind</p>
                         </div>
                     </div>
                 </div>
@@ -67,13 +82,16 @@ const About = () => {
                             <FaGamepad className='px-2' size={60} />
                             <h2 className="text-4xl font-semibold mb-2 text-center md:w-auto w-min">Gaming Related</h2>
                         </div>
-                        
-                        <SteamMiniProfile className='h-[400px] w-[600px]'/>
-
-                        {/*<div className='grid grid-cols-3 gap-8 px-12 sm:px-0 text-center'></div>*/}
+                        <div className='flex flex-col items-center'>
+                            <div className='md:w-[60vw] w-[90%] flex justify-between text-center gap-8 px-12 sm:px-0 '>
+                                <SteamMiniProfile/>
+                                <div>
+                                    <img src={imageSteamReplay} alt="Steam Replay 2022 image" className='max-h-[60%] mx-auto' />
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
