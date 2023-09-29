@@ -76,18 +76,18 @@ const About = () => {
                     </div>
                 </div>
 
-                <div className='flex flex-col sm:flex-row items-center'>
+                <div className='flex flex-col items-center'>
                     <div className='max-w-screen-lg md:p-4 p-2 mx-auto items-center'>
                         <div className='pb-8 flex flex-row justify-center items-center'>
                             <FaGamepad className='px-2' size={60} />
                             <h2 className="text-4xl font-semibold mb-2 text-center md:w-auto w-min">Gaming Related</h2>
                         </div>
-                        <div className='flex flex-col items-center'>
-                            <div className='md:w-[60vw] w-[90%]flex justify-between text-center gap-8 md:px-12 sm:px-0 '>
-                                <SteamMiniProfile/>
-                                <div className='md:py-0 pt-16'>
-                                    <img src={imageSteamReplay} alt="Steam Replay 2022 image" className='max-w-[80%] mx-auto'/>
-                                </div>
+                        <div className='flex flex-col md:flex-row md:items-start items-center gap-12'>
+                            <div>
+                                <SteamMiniProfile />
+                            </div>
+                            <div className='md:py-0 pt-8'>
+                                <img src={imageSteamReplay} alt="Steam Replay 2022 image" className='md:max-w-[60%] max-w-[80%] mx-auto'/>
                             </div>
                         </div>
                     </div>
