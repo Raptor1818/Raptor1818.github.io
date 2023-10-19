@@ -87,7 +87,7 @@ const About = () => {
                                 <SteamMiniProfile />
                             </div>
                             <div className='md:py-0 pt-8'>
-                                <img src={imageSteamReplay} alt="Steam Replay 2022 image" className='w-[540px] h-[960px] mx-auto'/>
+                                <img src={imageSteamReplay} alt="Steam Replay 2022 image" className='w-[350px] h-[622px] mx-auto'/>
                             </div>
                         </div>
                     </div>
