@@ -84,7 +84,7 @@ const Home = () => {
             </div>
 
             <div className='mt-6'>
-                <img src={mainPageF22} alt="F22 Title Image" className='mx-auto md:h-[530px] md:w-[943px] w-full left-0 absolute md:max-w-none select-none' draggable="false"/>
+                <img src={mainPageF22} alt="F22 Title Image" className='mx-auto md:h-[530px] md:w-[943px] w-full md:max-w-none select-none' draggable="false"/>
             </div>
 
             <div>
