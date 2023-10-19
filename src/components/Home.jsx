@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import mainPageF22 from '../assets/f22-no-bg.png'
+import mainPageF22 from '../assets/f22-no-bg.webp'
 import { MdOutlineKeyboardArrowRight } from "react-icons/md"
 import SocialLinks from './SocialLinks';
 import { Link } from 'react-scroll'
