@@ -44,19 +44,19 @@ const About = () => {
                     </div>
                     <div className='grid grid-cols-2 md:grid-cols-4 gap-5 px-12 sm:px-0 text-center'>
                         <div className='shadow-md shadow-[#e44d26] rounded-md p-2 hover:scale-105 transform transition-transform duration-300'>
-                        <img src={imageHtml} alt="HTML Logo" className='max-h-[128px] mx-auto' />
+                        <img src={imageHtml} alt="HTML Logo" className='h-[128px] mx-auto' />
                         <p className='p-3'>HTML</p>
                         </div>
                         <div className='shadow-md shadow-[#039be5] rounded-md p-2 hover:scale-105 transform transition-transform duration-300'>
-                        <img src={imageCss} alt="CSS Logo" className='max-h-[128px] mx-auto' />
+                        <img src={imageCss} alt="CSS Logo" className='h-[128px] mx-auto' />
                         <p className='p-3'>CSS</p>
                         </div>
                         <div className='shadow-md shadow-[#004283] rounded-md p-2 hover:scale-105 transform transition-transform duration-300'>
-                        <img src={imageCPP} alt="C++ Logo" className='max-h-[128px] mx-auto' />
+                        <img src={imageCPP} alt="C++ Logo" className='h-[128px] mx-auto' />
                         <p className='p-3'>C++</p>
                         </div>
                         <div className='shadow-md shadow-[#e26c00] rounded-md p-2 hover:scale-105 transform transition-transform duration-300'>
-                        <img src={imageJava} alt="Java Logo" className='max-h-[128px] mx-auto' />
+                        <img src={imageJava} alt="Java Logo" className='h-[128px] mx-auto' />
                         <p className='p-3'>Java</p>
                         </div>
                     </div>
@@ -66,11 +66,11 @@ const About = () => {
                     </div>
                     <div className='grid grid-cols-2 gap-5 px-12 sm:px-0 text-center'>
                         <div className='shadow-md shadow-[#00d6fe] rounded-md p-2 hover:scale-105 transform transition-transform duration-300'>
-                        <img src={imageReact} alt="React JS Logo" className='max-h-[128px] mx-auto' />
+                        <img src={imageReact} alt="React JS Logo" className='h-[128px] mx-auto' />
                         <p className='p-3'>React JS</p>
                         </div>
                         <div className='shadow-md shadow-[#44a8b3] rounded-md p-2 hover:scale-105 transform transition-transform duration-300'>
-                        <img src={imageTailwind} alt="Tailwind Logo" className='max-h-[128px] mx-auto' />
+                        <img src={imageTailwind} alt="Tailwind Logo" className='h-[128px] mx-auto' />
                         <p className='p-3'>Tailwind</p>
                         </div>
                     </div>
