@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 
-import imageHtml from '../assets/html.webp'
-import imageCss from '../assets/css.webp'
-import imageReact from '../assets/react.webp'
-import imageTailwind from '../assets/tailwind.webp'
-import imageCPP from '../assets/cpp.webp'
-import imageJava from '../assets/java.webp'
-import imageSteamReplay from '../assets/games/SteamReplay2022.webp'
+import imageHtml from '/html.webp'
+import imageCss from '/css.webp'
+import imageReact from '/react.webp'
+import imageTailwind from '/tailwind.webp'
+import imageCPP from '/cpp.webp'
+import imageJava from '/java.webp'
+import imageSteamReplay from '/games/SteamReplay2022.webp'
 
 {/*import game1 from '../assets/games/battlebit.webp'
 import game2 from '../assets/games/cyberpunk.webp'
