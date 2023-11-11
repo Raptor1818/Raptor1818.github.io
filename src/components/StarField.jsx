@@ -17,9 +17,13 @@ const StarField = () => {
     const ctx = canvas.getContext('2d');
     const container = containerRef.current;
 
+    // Set canvas dimensions
+    canvas.width = container.clientWidth;
+    canvas.height = container.clientHeight;
+
     const generateStar = () => ({
       x: Math.random() * canvas.width,
-      y: Math.random() * (canvas.height / 1.5),
+      y: Math.random() * canvas.height,
       radius: Math.random() * 2,
       opacity: Math.random(),
       flickerSpeed: (Math.random() - 0.5) * 0.01,
@@ -33,15 +37,7 @@ const StarField = () => {
       ctx.fill();
     };
 
-    const calculateStarCount = () => {
-      if (window.innerWidth <= 600) {
-        return 100;
-      } else {
-        return 200;
-      }
-    };
-
-    let stars = Array.from({ length: calculateStarCount() }, generateStar);
+    let stars = Array.from({ length: 250 }, generateStar);
     const points = [];
 
     const addPoint = (x, y) => {
@@ -49,9 +45,10 @@ const StarField = () => {
       points.push(point);
     };
 
-    window.addEventListener('mousemove', (event) => {
+    const mouseMoveHandler = (event) => {
       addPoint(event.pageX - container.offsetLeft, event.pageY - container.offsetTop);
-    }, false);
+    };
+    window.addEventListener('mousemove', mouseMoveHandler, false);
 
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -69,11 +66,7 @@ const StarField = () => {
       const duration = (0.7 * (1 * 1000)) / 60;
       for (let i = 0; i < points.length; ++i) {
         const point = points[i];
-        let lastPoint;
-
-        if (points[i - 1] !== undefined) {
-          lastPoint = points[i - 1];
-        } else lastPoint = point;
+        let lastPoint = points[i - 1] || point;
 
         point.lifetime += 1;
 
@@ -88,10 +81,8 @@ const StarField = () => {
           ctx.strokeStyle = 'white';
 
           ctx.beginPath();
-
           ctx.moveTo(lastPoint.x, lastPoint.y);
           ctx.lineTo(point.x, point.y);
-
           ctx.stroke();
           ctx.closePath();
         }
@@ -100,25 +91,30 @@ const StarField = () => {
       requestAnimationFrame(animate);
     };
 
-    animate();
-
     const resizeCanvas = () => {
+      const oldWidth = canvas.width;
+      const oldHeight = canvas.height;
+
       canvas.width = container.clientWidth;
       canvas.height = container.clientHeight;
-      stars = Array.from({ length: calculateStarCount() }, generateStar);
+
+      stars.forEach(star => {
+        star.x *= canvas.width / oldWidth;
+        star.y *= canvas.height / oldHeight;
+      });
     };
 
-    resizeCanvas();
-
     window.addEventListener('resize', resizeCanvas);
+    animate();
 
     return () => {
       window.removeEventListener('resize', resizeCanvas);
+      window.removeEventListener('mousemove', mouseMoveHandler);
     };
   }, []);
 
   return (
-    <div className="star-field-container starfield-whitebar-fix" ref={containerRef}>
+    <div ref={containerRef} className="star-field-container starfield-whitebar-fix">
       <canvas ref={canvasRef} className="star-field"></canvas>
     </div>
   );

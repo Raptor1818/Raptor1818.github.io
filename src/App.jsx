@@ -3,7 +3,7 @@ import NavBar from './components/NavBar'
 import Home from './components/Home'
 import About from './components/About'
 import SocialsSection from './components/SocialsSection'
-import MyThings from './components/MyThings'
+import MyWorks from './components/MyWorks'
 import Footer from './components/Footer'
 
 function App() {
@@ -14,8 +14,8 @@ function App() {
       <NavBar />
       <Home />
       <About />
+      <MyWorks />
       {
-        //<MyThings />
         //<SocialsSection />
       }
       <Footer /> 

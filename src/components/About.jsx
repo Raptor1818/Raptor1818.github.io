@@ -76,7 +76,7 @@ const About = () => {
                     </div>
                 </div>
 
-                <div className='flex flex-col items-center'>
+                {/*<div className='flex flex-col items-center'>
                     <div className='max-w-screen-lg md:p-4 p-2 mx-auto items-center'>
                         <div className='pb-8 flex flex-row justify-center items-center'>
                             <FaGamepad className='px-2' size={60} />
@@ -91,7 +91,7 @@ const About = () => {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
             </div>
         </div>
     </div>
