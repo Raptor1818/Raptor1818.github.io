@@ -42,7 +42,7 @@ const About = () => {
                         <FaCode className='px-2' size={60} />
                         <h1 className="md:text-5xl text-4xl font-semibold mb-2 text-center md:w-auto w-min">Languages I speak</h1>
                     </div>
-                    <div className='grid grid-cols-2 md:grid-cols-4 gap-5 px-12 sm:px-0 text-center'>
+                    <div className='grid grid-cols-2 md:grid-cols-4 gap-5 px-4 sm:px-0 text-center'>
                         <div className='shadow-md shadow-[#e44d26] rounded-md p-2 hover:scale-105 transform transition-transform duration-300'>
                         <img src={imageHtml} alt="HTML Logo" className='max-h-[128px] mx-auto' />
                         <p className='p-3'>HTML</p>
@@ -62,9 +62,9 @@ const About = () => {
                     </div>
                     <div className='pb-8 mt-16 flex flex-row justify-center items-center'>
                         <FaBookReader className='px-2' size={45} />
-                        <h1 className="md:text-3xl text-2xl font-semibold mb-2 text-center md:w-auto w-min">New to</h1>
+                        <h1 className="md:text-3xl text-2xl font-semibold mb-2 text-center md:w-auto">New to</h1>
                     </div>
-                    <div className='grid grid-cols-2 gap-5 px-12 sm:px-0 text-center'>
+                    <div className='grid grid-cols-2 gap-5 px-4 sm:px-0 text-center'>
                         <div className='shadow-md shadow-[#00d6fe] rounded-md p-2 hover:scale-105 transform transition-transform duration-300'>
                         <img src={imageReact} alt="React JS Logo" className='max-h-[128px] mx-auto' />
                         <p className='p-3'>React JS</p>
