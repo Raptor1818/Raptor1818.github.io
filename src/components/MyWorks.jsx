@@ -4,8 +4,8 @@ import { FaLightbulb } from "react-icons/fa"
 const MyWorks = () => {
 
   const works = [
-    { id: 1, title: 'Raptorino', screenshotUrl: '', hrefUrl: 'https://https://github.com/Raptor1818/raptorino'},
-    { id: 2, title: 'Bar Calculator', screenshotUrl: '', hrefUrl: 'https://github.com/Raptor1818/bar-calculator'},
+    { id: 1, title: 'Raptorino', screenshotUrl: '/img/works/raptorino-com.webp', hrefUrl: 'https://https://github.com/Raptor1818/raptorino'},
+    { id: 2, title: 'Bar Calculator', screenshotUrl: '/img/works/bar-calculator-vercel-app.webp', hrefUrl: 'https://github.com/Raptor1818/bar-calculator'},
     { id: 3, title: 'WIP...', screenshotUrl: ''}
   ];
 

@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from 'react';
 
-import imageHtml from '/html.webp'
-import imageCss from '/css.webp'
-import imageReact from '/react.webp'
-import imageTailwind from '/tailwind.webp'
-import imageCPP from '/cpp.webp'
-import imageJava from '/java.webp'
-import imageSteamReplay from '/games/SteamReplay2022.webp'
+import imageHtml from '/img/html.webp'
+import imageCss from '/img/css.webp'
+import imageReact from '/img/react.webp'
+import imageTailwind from '/img/tailwind.webp'
+import imageCPP from '/img/cpp.webp'
+import imageJava from '/img/java.webp'
+import imageSteamReplay from '/img/games/SteamReplay2022.webp'
 
-{/*import game1 from '../assets/games/battlebit.webp'
-import game2 from '../assets/games/cyberpunk.webp'
-import game3 from '../assets/games/factorio.webp'
-import game4 from '../assets/games/osugame.webp'
-import game5 from '../assets/games/minecraft.webp'
-import game6 from '../assets/games/terraria.webp'*/}
+{/*import game1 from '/img/games/battlebit.webp'
+import game2 from '/img/games/cyberpunk.webp'
+import game3 from '/img/games/factorio.webp'
+import game4 from '/img/games/osugame.webp'
+import game5 from '/img/games/minecraft.webp'
+import game6 from '/img/games/terraria.webp'*/}
 
 import {FaCode, FaGamepad, FaUser, FaBookReader} from "react-icons/fa"
 
