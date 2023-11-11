@@ -37,7 +37,10 @@ const StarField = () => {
       ctx.fill();
     };
 
-    let stars = Array.from({ length: 250 }, generateStar);
+    if (canvas.width > 768)
+      var stars = Array.from({ length: 250 }, generateStar)
+    else
+      var stars = Array.from({ length: 125 }, generateStar)
     const points = [];
 
     const addPoint = (x, y) => {
