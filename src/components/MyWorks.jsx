@@ -33,7 +33,7 @@ const MyWorks = () => {
       <div className='max-w-screen-lg p-4 pb-24 mx-auto flex flex-col justify-center w-full h-full gap-16'>
         <div className='pb-8 pt-24 flex flex-row justify-center items-center'>
             <FaLightbulb className='px-2' size={60} />
-            <h1 className="md:text-5xl text-4xl font-semibold mb-2 text-center md:w-auto w-min">My Works</h1>
+            <h1 className="md:text-5xl text-4xl font-semibold mb-2 text-center md:w-auto">My Works</h1>
         </div>
         <div className='grid md:grid-cols-3 grid-cols-1 gap-8 px-4 md:px-0'>
           {works.map(work => (
