@@ -90,6 +90,11 @@ const Home = () => {
             <div>
                 <SocialLinks></SocialLinks>
             </div>
+
+        </div>
+          
+        <div className='w-full'>
+          <h1 className='text-3xl text-red-300 font-bold text-center'>New website is WIP</h1>
         </div>
     </div>
   )

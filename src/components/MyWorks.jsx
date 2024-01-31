@@ -1,6 +1,8 @@
 import React from 'react';
-import { FaLightbulb, FaGithub, FaReact } from "react-icons/fa";
+import { FaLightbulb, FaGithub, FaReact, FaTools } from "react-icons/fa";
 import { SiTailwindcss } from "react-icons/si";
+import { IoLogoElectron } from "react-icons/io5";
+import { TbBrandReactNative } from "react-icons/tb";
 
 const MyWorks = () => {
 
@@ -20,12 +22,34 @@ const MyWorks = () => {
       hrefUrl: 'https://github.com/Raptor1818/bar-calculator',
       linkTo: FaGithub,
       langs: [FaReact, SiTailwindcss]
+    }
+  ];
+
+  const wip_works = [
+    {
+      id: 1,
+      title: 'Streamino',
+      screenshotUrl: '',
+      hrefUrl: 'https://github.com/Raptor1818/streamino',
+      linkTo: FaGithub,
+      langs: [FaReact, SiTailwindcss, IoLogoElectron]
+    },
+    {
+      id: 2,
+      title: 'Notifierino',
+      screenshotUrl: '',
+      hrefUrl: 'https://github.com/Raptor1818/notifierino',
+      linkTo: FaGithub,
+      langs: [TbBrandReactNative]
     },
     {
       id: 3,
-      title: 'WIP...',
-      screenshotUrl: '/img/works/cat-WIP.webp',
-    }
+      title: 'New personal website',
+      screenshotUrl: '',
+      hrefUrl: 'https://github.com/Raptor1818/raptorino-ts',
+      linkTo: FaGithub,
+      langs: [FaReact, SiTailwindcss]
+    },
   ];
 
   return (
@@ -35,7 +59,7 @@ const MyWorks = () => {
             <FaLightbulb className='px-2' size={60} />
             <h1 className="md:text-5xl text-4xl font-semibold mb-2 text-center md:w-auto">My Works</h1>
         </div>
-        <div className='grid md:grid-cols-3 grid-cols-1 gap-8 px-4 md:px-0'>
+        <div className='grid md:grid-cols-2 grid-cols-1 gap-8 px-4 md:px-0'>
           {works.map(work => (
             <a href={work.hrefUrl} target='_blank' rel="noopener noreferrer" key={work.id}>
               <div className='rounded-lg border-[1px] border-gray-900 shadow-md shadow-gray-800 duration-200 hover:scale-105 overflow-hidden text-center'>
@@ -43,6 +67,32 @@ const MyWorks = () => {
                   src={work.screenshotUrl} 
                   alt={work.title} 
                   className='w-full h-48 object-cover'
+                />
+                <div className='grid grid-cols-3 justify-center items-center p-4 text-3xl'>
+                  <div className='flex flex-row justify-center items-center gap-2'>
+                    {work.linkTo && <work.linkTo />}
+                  </div>
+                  <p className='text-lg'>{work.title}</p>
+                  <div className='flex flex-row justify-center items-center gap-2'>
+                    {work.langs && work.langs.map((LangIcon, index) => <LangIcon key={index} />)}
+                  </div>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+        <div className='pb-8 pt-24 flex flex-row justify-center items-center'>
+            <FaTools className='px-2' size={60} />
+            <h1 className="md:text-5xl text-4xl font-semibold mb-2 text-center md:w-auto">WIP Projects</h1>
+        </div>
+        <div className='grid md:grid-cols-3 grid-cols-1 gap-8 px-4 md:px-0'>
+        {wip_works.map(work => (
+            <a href={work.hrefUrl} target='_blank' rel="noopener noreferrer" key={work.id}>
+              <div className='rounded-lg border-[1px] border-gray-900 shadow-md shadow-gray-800 duration-200 hover:scale-105 overflow-hidden text-center'>
+                <img 
+                  src={work.screenshotUrl} 
+                  alt={work.title} 
+                  className='w-full h-48 object-cover items-center flex text-center justify-center'
                 />
                 <div className='grid grid-cols-3 justify-center items-center p-4 text-3xl'>
                   <div className='flex flex-row justify-center items-center gap-2'>

@@ -36,6 +36,10 @@ const About = () => {
                 I have made various websites in vanilla HTML and CSS, including a Youtube style private streaming service. This is my first React Js and Tailwind project.
             </p>
             
+            <p className="text-xl mt-4">
+                I recently got into game development, and I've been learning Godot 4.
+            </p>
+            
             <div className='flex flex-col gap-3 mt-12'>
                 <div className='max-w-screen-lg p-4 pb-24 mx-auto flex flex-col justify-center w-full h-full'>
                     <div className='pb-8 flex flex-row justify-center items-center'>
