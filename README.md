@@ -1,7 +1,3 @@
-# www.raptorino.com
+# Newer version at https://github.com/Raptor1818/raptorino-ts
 
-This is my personal website.
-
-Made in Vite React Js and Tailwind.
-
-Kind of a porfolio, if you will.
+This is now an old project and will not be maintained anymore.
